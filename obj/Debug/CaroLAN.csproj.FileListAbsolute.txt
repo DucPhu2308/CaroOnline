@@ -1,0 +1,12 @@
+D:\Learning\HK5\CaroLAN\bin\Debug\CaroLAN.exe.config
+D:\Learning\HK5\CaroLAN\bin\Debug\CaroLAN.exe
+D:\Learning\HK5\CaroLAN\bin\Debug\CaroLAN.pdb
+D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.csproj.AssemblyReference.cache
+D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.csproj.SuggestedBindingRedirects.cache
+D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.Form1.resources
+D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.Properties.Resources.resources
+D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.csproj.GenerateResource.cache
+D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.csproj.CoreCompileInputs.cache
+D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.exe
+D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.pdb
+D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.MainMenu.resources
