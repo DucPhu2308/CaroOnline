@@ -19,7 +19,7 @@ namespace CaroLAN
         Gameplay gameplay;
         private void Form1_Load(object sender, EventArgs e)
         {
-            gameplay = new Gameplay(panelBoard, pbTurn, GameMode.PvP);
+            gameplay = new Gameplay(panelBoard, pbTurn, GameMode.PvC);
             gameplay.BoardInit();
         }
 
