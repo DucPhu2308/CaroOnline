@@ -15,24 +15,28 @@ namespace CaroLAN
         int btnWidth = 30;
         int btnHeight = 30;
         Button[,] matrixButton;
-        char[,] matrixValue;
         bool isXturn = true;
+        Bitmap imgX = Properties.Resources.x;
+        Bitmap imgO = Properties.Resources.o;
 
         PictureBox pbTurn;
         Panel panelBoard;
         GameMode gameMode;
-        public Gameplay(Panel panelBoard, PictureBox pbTurn, GameMode gameMode)
+        Player player1;
+        Player player2;
+        public Gameplay(Panel panelBoard, PictureBox pbTurn, GameMode gameMode, Player player1, Player player2)
         {
             this.panelBoard = panelBoard;
             this.pbTurn = pbTurn;
             this.gameMode = gameMode;
+            this.player1 = player1;
+            this.player2 = player2;
         }
         public void BoardInit()
         {
             WIDTH = panelBoard.Width / btnWidth;
             HEIGHT = panelBoard.Height / btnHeight;
             matrixButton = new Button[HEIGHT, WIDTH];
-            matrixValue = new char[HEIGHT, WIDTH];
             for (int i = 0; i < HEIGHT; i++)
             {
                 for (int j = 0; j < WIDTH; j++)
@@ -46,7 +50,6 @@ namespace CaroLAN
                         BackgroundImageLayout = ImageLayout.Zoom,
                     };
                     matrixButton[i, j].Click += MatrixButton_Click;
-                    matrixValue[i, j] = ' ';
                     panelBoard.Controls.Add(matrixButton[i, j]);
                 }
             }
@@ -66,32 +69,53 @@ namespace CaroLAN
 
             Point point = GetPoint(btn);
             if (isXturn)
-            {
-                btn.BackgroundImage = Properties.Resources.x;
-                matrixValue[point.Y, point.X] = 'x';
-                pbTurn.BackgroundImage = Properties.Resources.o;
-            }
+                btn.BackgroundImage = imgX;
             else if (gameMode == GameMode.PvP)
+                btn.BackgroundImage = imgO;
+            if (IsEndGame(point))
+                EndGame();
+            else
+                ChangeTurn();
+        }
+
+        private void ChangeTurn()
+        {
+            if (isXturn) // change to O turn
             {
-                btn.BackgroundImage = Properties.Resources.o;
-                matrixValue[point.Y, point.X] = 'o';
-                pbTurn.BackgroundImage = Properties.Resources.x;
+                pbTurn.BackgroundImage = imgO;
+                player2.HighlightPanel();
+                player2.StartCountDown();
+                player1.StopCountDown();
+                player1.UnhighlightPanel();
+            }
+            else
+            {
+                pbTurn.BackgroundImage = imgX;
+                player1.StartCountDown();
+                player1.HighlightPanel();
+                player2.StopCountDown();
+                player2.UnhighlightPanel();
             }
             isXturn = !isXturn;
-            if (gameMode == GameMode.PvC)
-                ComputerTurn();
-            if (IsEndGame(point))
-            {
-                MessageBox.Show("End Game");
-                return;
-            }
         }
 
-        private void ComputerTurn()
+        public void EndGame()
         {
+            player1.StopCountDown();
+            player2.StopCountDown();
+            if (isXturn)
+            {
+                MessageBox.Show(player1.Name + " thắng");
+                player1.Score++;
+            }
+            else
+            {
+                MessageBox.Show(player2.Name + " thắng");
+                player2.Score++;
+            }
 
         }
-
+        #region endgame check
         bool IsEndGame(Point point)
         {
             return IsEndGameHorizontal(point) || IsEndGameVertical(point) || IsEndGamePrimaryDiagonal(point) || IsEndGameSubDiagonal(point);
@@ -102,14 +126,17 @@ namespace CaroLAN
             int countRight = 0;
             for (int i = point.X; i >= 0; i--)
             {
-                if (matrixValue[point.Y, i] == matrixValue[point.Y, point.X])
+                if (matrixButton[point.Y, i].BackgroundImage == matrixButton[point.Y, point.X].BackgroundImage)
+                {
                     countLeft++;
+                    Console.WriteLine(countLeft);
+                }
                 else
                     break;
             }
             for (int i = point.X + 1; i < WIDTH; i++)
             {
-                if (matrixValue[point.Y, i] == matrixValue[point.Y, point.X])
+                if (matrixButton[point.Y, i].BackgroundImage == matrixButton[point.Y, point.X].BackgroundImage)
                     countRight++;
                 else
                     break;
@@ -122,14 +149,14 @@ namespace CaroLAN
             int countBottom = 0;
             for (int i = point.Y; i >= 0; i--)
             {
-                if (matrixValue[i, point.X] == matrixValue[point.Y, point.X])
+                if (matrixButton[i, point.X].BackgroundImage == matrixButton[point.Y, point.X].BackgroundImage)
                     countTop++;
                 else
                     break;
             }
             for (int i = point.Y + 1; i < HEIGHT; i++)
             {
-                if (matrixValue[i, point.X] == matrixValue[point.Y, point.X])
+                if (matrixButton[i, point.X].BackgroundImage == matrixButton[point.Y, point.X].BackgroundImage)
                     countBottom++;
                 else
                     break;
@@ -144,7 +171,7 @@ namespace CaroLAN
             {
                 if (point.X - i < 0 || point.Y - i < 0)
                     break;
-                if (matrixValue[point.Y - i, point.X - i] == matrixValue[point.Y, point.X])
+                if (matrixButton[point.Y - i, point.X - i].BackgroundImage == matrixButton[point.Y, point.X].BackgroundImage)
                     countTop++;
                 else
                     break;
@@ -153,7 +180,7 @@ namespace CaroLAN
             {
                 if (point.X + i >= WIDTH || point.Y + i >= HEIGHT)
                     break;
-                if (matrixValue[point.Y + i, point.X + i] == matrixValue[point.Y, point.X])
+                if (matrixButton[point.Y + i, point.X + i].BackgroundImage == matrixButton[point.Y, point.X].BackgroundImage)
                     countBottom++;
                 else
                     break;
@@ -168,7 +195,7 @@ namespace CaroLAN
             {
                 if (point.X - i < 0 || point.Y + i >= HEIGHT)
                     break;
-                if (matrixValue[point.Y + i, point.X - i] == matrixValue[point.Y, point.X])
+                if (matrixButton[point.Y + i, point.X - i].BackgroundImage == matrixButton[point.Y, point.X].BackgroundImage)
                     countTop++;
                 else
                     break;
@@ -177,13 +204,14 @@ namespace CaroLAN
             {
                 if (point.X + i >= WIDTH || point.Y - i < 0)
                     break;
-                if (matrixValue[point.Y - i, point.X + i] == matrixValue[point.Y, point.X])
+                if (matrixButton[point.Y - i, point.X + i].BackgroundImage == matrixButton[point.Y, point.X].BackgroundImage)
                     countBottom++;
                 else
                     break;
             }
             return countTop + countBottom >= 5;
         }
+        #endregion
     }
     public enum GameMode
     {
