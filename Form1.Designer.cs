@@ -166,14 +166,6 @@
             this.pbTurn.TabIndex = 0;
             this.pbTurn.TabStop = false;
             // 
-            // timerPlayer1
-            // 
-            this.timerPlayer1.Interval = 1000;
-            // 
-            // timerPlayer2
-            // 
-            this.timerPlayer2.Interval = 1000;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

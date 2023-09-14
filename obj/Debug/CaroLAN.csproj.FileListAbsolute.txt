@@ -10,3 +10,4 @@ D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.csproj.CoreCompileInputs.cache
 D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.exe
 D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.pdb
 D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.MainMenu.resources
+D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.FormChooseMode.resources

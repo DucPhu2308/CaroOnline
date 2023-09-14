@@ -13,7 +13,7 @@ namespace CaroLAN
     {
         public string Name { get; set; }
         public int Score { get; set; }
-        public int TimeLeft { get; set; }
+        public double TimeLeft { get; set; }
         public Timer Timer { get; set; }
         public Label TxtTime { get; set; }
         public Panel PanelPlayer { get; set; }
@@ -38,8 +38,9 @@ namespace CaroLAN
         }
         public string GetTimeLeft()
         {
-            int minutes = TimeLeft / 60;
-            int seconds = TimeLeft % 60;
+            int timeLeft = (int)TimeLeft;
+            int minutes = timeLeft / 60;
+            int seconds = timeLeft % 60;
             string minutesStr = minutes.ToString();
             string secondsStr = seconds.ToString();
             if (minutes < 10)
@@ -63,7 +64,7 @@ namespace CaroLAN
         }
         public void Timer_Tick(object sender, EventArgs e)
         {
-            TimeLeft--;
+            TimeLeft -= (double) Timer.Interval/1000;
             TxtTime.Text = GetTimeLeft();
             if (TimeLeft == 0)
             {

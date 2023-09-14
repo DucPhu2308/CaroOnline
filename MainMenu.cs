@@ -16,5 +16,13 @@ namespace CaroLAN
         {
             InitializeComponent();
         }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            Form form = new FormChooseMode();
+            Hide();
+            form.ShowDialog();
+            Show();
+        }
     }
 }
