@@ -50,7 +50,7 @@ namespace CaroLAN
         #region Both
         public String IP = "127.0.0.1";
         public int Port = 9999;
-        bool isServer = true;
+        public bool isServer = true;
         public const int BUFFER = 1024;
 
         public bool Send(object data)
@@ -78,7 +78,7 @@ namespace CaroLAN
         {
             return target.Receive(data) == 1 ? true : false;
         }
-        public String GetLocalIPv4(System.Net.NetworkInformation.NetworkInterfaceType _type)
+        public static String GetLocalIPv4(System.Net.NetworkInformation.NetworkInterfaceType _type)
         {
             String output = "";
             foreach (System.Net.NetworkInformation.NetworkInterface item in System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces())

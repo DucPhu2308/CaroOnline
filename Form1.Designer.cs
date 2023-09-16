@@ -28,20 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panelBoard = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelPlayer2 = new System.Windows.Forms.Panel();
-            this.txtPlayerName2 = new System.Windows.Forms.Label();
-            this.txtTimer2 = new System.Windows.Forms.Label();
+            this.lbName2 = new System.Windows.Forms.Label();
+            this.lbTimer2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelPlayer1 = new System.Windows.Forms.Panel();
-            this.txtPlayerName1 = new System.Windows.Forms.Label();
-            this.txtTimer1 = new System.Windows.Forms.Label();
+            this.lbName1 = new System.Windows.Forms.Label();
+            this.lbTimer1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbTurn = new System.Windows.Forms.PictureBox();
-            this.timerPlayer1 = new System.Windows.Forms.Timer(this.components);
-            this.timerPlayer2 = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             this.panelPlayer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -73,8 +70,8 @@
             // panelPlayer2
             // 
             this.panelPlayer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelPlayer2.Controls.Add(this.txtPlayerName2);
-            this.panelPlayer2.Controls.Add(this.txtTimer2);
+            this.panelPlayer2.Controls.Add(this.lbName2);
+            this.panelPlayer2.Controls.Add(this.lbTimer2);
             this.panelPlayer2.Controls.Add(this.pictureBox2);
             this.panelPlayer2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPlayer2.Location = new System.Drawing.Point(0, 472);
@@ -82,25 +79,25 @@
             this.panelPlayer2.Size = new System.Drawing.Size(293, 181);
             this.panelPlayer2.TabIndex = 2;
             // 
-            // txtPlayerName2
+            // lbName2
             // 
-            this.txtPlayerName2.AutoSize = true;
-            this.txtPlayerName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.txtPlayerName2.Location = new System.Drawing.Point(79, 8);
-            this.txtPlayerName2.Name = "txtPlayerName2";
-            this.txtPlayerName2.Size = new System.Drawing.Size(124, 36);
-            this.txtPlayerName2.TabIndex = 5;
-            this.txtPlayerName2.Text = "Player 2";
+            this.lbName2.AutoSize = true;
+            this.lbName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.lbName2.Location = new System.Drawing.Point(79, 8);
+            this.lbName2.Name = "lbName2";
+            this.lbName2.Size = new System.Drawing.Size(124, 36);
+            this.lbName2.TabIndex = 5;
+            this.lbName2.Text = "Player 2";
             // 
-            // txtTimer2
+            // lbTimer2
             // 
-            this.txtTimer2.AutoSize = true;
-            this.txtTimer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimer2.Location = new System.Drawing.Point(129, 68);
-            this.txtTimer2.Name = "txtTimer2";
-            this.txtTimer2.Size = new System.Drawing.Size(124, 46);
-            this.txtTimer2.TabIndex = 4;
-            this.txtTimer2.Text = "00:00";
+            this.lbTimer2.AutoSize = true;
+            this.lbTimer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTimer2.Location = new System.Drawing.Point(129, 68);
+            this.lbTimer2.Name = "lbTimer2";
+            this.lbTimer2.Size = new System.Drawing.Size(124, 46);
+            this.lbTimer2.TabIndex = 4;
+            this.lbTimer2.Text = "00:00";
             // 
             // pictureBox2
             // 
@@ -116,8 +113,8 @@
             // 
             this.panelPlayer1.BackColor = System.Drawing.SystemColors.Control;
             this.panelPlayer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelPlayer1.Controls.Add(this.txtPlayerName1);
-            this.panelPlayer1.Controls.Add(this.txtTimer1);
+            this.panelPlayer1.Controls.Add(this.lbName1);
+            this.panelPlayer1.Controls.Add(this.lbTimer1);
             this.panelPlayer1.Controls.Add(this.pictureBox1);
             this.panelPlayer1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPlayer1.Location = new System.Drawing.Point(0, 287);
@@ -125,25 +122,25 @@
             this.panelPlayer1.Size = new System.Drawing.Size(293, 185);
             this.panelPlayer1.TabIndex = 1;
             // 
-            // txtPlayerName1
+            // lbName1
             // 
-            this.txtPlayerName1.AutoSize = true;
-            this.txtPlayerName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.txtPlayerName1.Location = new System.Drawing.Point(79, 11);
-            this.txtPlayerName1.Name = "txtPlayerName1";
-            this.txtPlayerName1.Size = new System.Drawing.Size(124, 36);
-            this.txtPlayerName1.TabIndex = 3;
-            this.txtPlayerName1.Text = "Player 1";
+            this.lbName1.AutoSize = true;
+            this.lbName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.lbName1.Location = new System.Drawing.Point(79, 11);
+            this.lbName1.Name = "lbName1";
+            this.lbName1.Size = new System.Drawing.Size(124, 36);
+            this.lbName1.TabIndex = 3;
+            this.lbName1.Text = "Player 1";
             // 
-            // txtTimer1
+            // lbTimer1
             // 
-            this.txtTimer1.AutoSize = true;
-            this.txtTimer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimer1.Location = new System.Drawing.Point(129, 71);
-            this.txtTimer1.Name = "txtTimer1";
-            this.txtTimer1.Size = new System.Drawing.Size(124, 46);
-            this.txtTimer1.TabIndex = 2;
-            this.txtTimer1.Text = "00:00";
+            this.lbTimer1.AutoSize = true;
+            this.lbTimer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTimer1.Location = new System.Drawing.Point(129, 71);
+            this.lbTimer1.Name = "lbTimer1";
+            this.lbTimer1.Size = new System.Drawing.Size(124, 46);
+            this.lbTimer1.TabIndex = 2;
+            this.lbTimer1.Text = "00:00";
             // 
             // pictureBox1
             // 
@@ -189,20 +186,17 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelBoard;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pbTurn;
-        private System.Windows.Forms.Panel panelPlayer2;
-        private System.Windows.Forms.Panel panelPlayer1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label txtPlayerName2;
-        private System.Windows.Forms.Label txtTimer2;
-        private System.Windows.Forms.Label txtPlayerName1;
-        private System.Windows.Forms.Label txtTimer1;
-        private System.Windows.Forms.Timer timerPlayer1;
-        private System.Windows.Forms.Timer timerPlayer2;
+        protected System.Windows.Forms.Panel panelPlayer2;
+        protected System.Windows.Forms.Panel panelPlayer1;
+        protected System.Windows.Forms.Panel panelBoard;
+        protected System.Windows.Forms.Label lbName2;
+        protected System.Windows.Forms.Label lbTimer2;
+        protected System.Windows.Forms.Label lbName1;
+        protected System.Windows.Forms.Label lbTimer1;
     }
 }
 

@@ -9,32 +9,27 @@ using Timer = System.Windows.Forms.Timer;
 
 namespace CaroLAN
 {
-    internal class Player
+    public class Player
     {
         public string Name { get; set; }
         public int Score { get; set; }
         public double TimeLeft { get; set; }
         public Timer Timer { get; set; }
-        public Label TxtTime { get; set; }
-        public Panel PanelPlayer { get; set; }
-        public Player(string name, Timer timer, Label txtTime, Panel panelPlayer)
+        public Label LabelTime { get; set; }
+        public Label LabelName { get; set; }
+        public Player(string name, Label txtTime, Label labelName)
         {
             Name = name;
             Score = 0;
-            TimeLeft = 5*60;
-            Timer = timer;
+            TimeLeft = 5 * 60;
+
+            Timer = new Timer();
+            Timer.Interval = 100;
             Timer.Tick += Timer_Tick;
-            TxtTime = txtTime;
-            TxtTime.Text = GetTimeLeft();
-            PanelPlayer = panelPlayer;
-        }
-        public void HighlightPanel()
-        {
-            PanelPlayer.BackColor = System.Drawing.Color.YellowGreen;
-        }
-        public void UnhighlightPanel()
-        {
-            PanelPlayer.BackColor = System.Drawing.Color.Transparent;
+
+            LabelTime = txtTime;
+            LabelTime.Text = GetTimeLeft();
+            LabelName = labelName;
         }
         public string GetTimeLeft()
         {
@@ -54,6 +49,11 @@ namespace CaroLAN
 
             return minutesStr + ":" + secondsStr;
         }
+        public void UpdateName(string name)
+        {
+            Name = name;
+            LabelName.Text = name;
+        }
         public void StartCountDown()
         {
             Timer.Start();
@@ -65,7 +65,7 @@ namespace CaroLAN
         public void Timer_Tick(object sender, EventArgs e)
         {
             TimeLeft -= (double) Timer.Interval/1000;
-            TxtTime.Text = GetTimeLeft();
+            LabelTime.Text = GetTimeLeft();
             if (TimeLeft == 0)
             {
                 Timer.Stop();

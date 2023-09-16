@@ -58,6 +58,9 @@
     <Compile Include="FormChooseMode.Designer.cs">
       <DependentUpon>FormChooseMode.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPvPLan.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Gameplay.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -65,9 +68,13 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageBoxCancel.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SocketData.cs" />
     <Compile Include="SocketManager.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

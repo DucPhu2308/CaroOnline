@@ -42,6 +42,21 @@ namespace CaroLAN
         {
             txtPlayerName.Text = Properties.Settings.Default.PlayerName;
             txtPlayerName2.Text = Properties.Settings.Default.PlayerName2;
+
+            // get IP address
+            txtIPAddress.Text = SocketManager.GetLocalIPv4(System.Net.NetworkInformation.NetworkInterfaceType.Wireless80211);
+            if (string.IsNullOrEmpty(txtIPAddress.Text))
+            {
+                txtIPAddress.Text = SocketManager.GetLocalIPv4(System.Net.NetworkInformation.NetworkInterfaceType.Ethernet);
+            }
+        }
+
+        private void btnLANPlay_Click(object sender, EventArgs e)
+        {
+            Form form = new FormPvPLan(txtIPAddress.Text);
+            Hide();
+            form.ShowDialog();
+            Close();
         }
     }
 }
