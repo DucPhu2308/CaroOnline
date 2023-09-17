@@ -114,9 +114,4 @@ namespace CaroLAN
         }
         #endregion
     }
-    public enum GameMode
-    {
-        PvPLocal,
-        PvC
-    }
 }

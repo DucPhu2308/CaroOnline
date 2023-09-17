@@ -230,7 +230,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormChooseMode";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormChooseMode";
             this.Load += new System.EventHandler(this.FormChooseMode_Load);
             this.panel1.ResumeLayout(false);

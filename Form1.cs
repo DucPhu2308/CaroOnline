@@ -20,8 +20,11 @@ namespace CaroLAN
         protected Player player2;
         protected void Form1_Load(object sender, EventArgs e)
         {
-            player1 = new Player(Properties.Settings.Default.PlayerName, lbTimer1, lbName1);
-            player2 = new Player(Properties.Settings.Default.PlayerName2, lbTimer2, lbName2);
+            player1 = new Player(Properties.Settings.Default.PlayerName, panelPlayer1);
+            player2 = new Player(Properties.Settings.Default.PlayerName2, panelPlayer2);
+            player1.TimeOut += Player_TimeOut;
+            player2.TimeOut += Player_TimeOut;
+
             lbName1.Text = player1.Name;
             lbName2.Text = player2.Name;
             BoardInit(panelBoard);
@@ -99,32 +102,80 @@ namespace CaroLAN
             else
                 btn.BackgroundImage = imgO;
             if (Gameplay.IsEndGame(matrixButton, point))
-                EndGame();
+            {
+                Player winner = isXturn ? player1 : player2;
+                EndGame(winner);
+            }
             else
                 ChangeTurn();
         }
-        public void EndGame()
+        protected virtual void EndGame(Player winner)
+        {
+            PauseGame();
+            DialogResult dr = MessageBox.Show(winner.Name + " thắng! Bắt đầu lại?", "Trò chơi kết thúc", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dr == DialogResult.Yes)
+            {
+                ResetGame();
+            }
+        }
+        protected void Player_TimeOut()
+        {
+            Player winner = isXturn ? player2 : player1;
+            EndGame(winner);
+        }
+        protected void PauseGame()
         {
             player1.StopCountDown();
             player2.StopCountDown();
-            if (isXturn)
-            {
-                MessageBox.Show(player1.Name + " thắng");
-                player1.Score++;
-            }
-            else
-            {
-                MessageBox.Show(player2.Name + " thắng");
-                player2.Score++;
-            }
-
+            panelBoard.Enabled = false;
         }
+        protected virtual void ResetGame()
+        {
+            panelBoard.Controls.Clear();
+            panelBoard.Enabled = true;
+            player1.ResetTimer();
+            player2.ResetTimer();
+            UnhighlightPanel(panelPlayer1);
+            UnhighlightPanel(panelPlayer2);
+            isXturn = true;
+            pbTurn.BackgroundImage = imgX;
+            BoardInit(panelBoard);
+        }
+
         Point GetPoint(Button btn)
         {
             string[] xy = btn.Tag.ToString().Split(' ');
             int y = Convert.ToInt32(xy[0]);
             int x = Convert.ToInt32(xy[1]);
             return new Point(x, y);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Bạn muốn thoát?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+                Dispose();
+        }
+
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Bạn muốn bắt đầu lại?", "Bắt đầu lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+                ResetGame();
+        }
+
+        private void exitToMenuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void exitToDesktopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

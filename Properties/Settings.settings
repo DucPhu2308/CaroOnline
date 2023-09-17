@@ -8,5 +8,8 @@
     <Setting Name="PlayerName2" Type="System.String" Scope="User">
       <Value Profile="(Default)">Default2</Value>
     </Setting>
+    <Setting Name="TotalTime" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">600</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -17,19 +17,35 @@ namespace CaroLAN
         public Timer Timer { get; set; }
         public Label LabelTime { get; set; }
         public Label LabelName { get; set; }
-        public Player(string name, Label txtTime, Label labelName)
+        public Panel PanelPlayer { get; set; }
+        public event TimeOutHandler TimeOut;
+        public delegate void TimeOutHandler();
+        public Player(string name, Panel panelPlayer)
         {
             Name = name;
             Score = 0;
-            TimeLeft = 5 * 60;
+            TimeLeft = Properties.Settings.Default.TotalTime;
 
             Timer = new Timer();
             Timer.Interval = 100;
             Timer.Tick += Timer_Tick;
 
-            LabelTime = txtTime;
+
+            PanelPlayer = panelPlayer;
+            foreach (Control control in PanelPlayer.Controls)
+            {
+                if (control.Tag == null)
+                    continue;
+                if (control.Tag.ToString() == "name")
+                {
+                    LabelName = control as Label;
+                }
+                else if (control.Tag.ToString() == "time")
+                {
+                    LabelTime = control as Label;
+                }
+            }
             LabelTime.Text = GetTimeLeft();
-            LabelName = labelName;
         }
         public string GetTimeLeft()
         {
@@ -62,14 +78,21 @@ namespace CaroLAN
         {
             Timer.Stop();
         }
+        public void ResetTimer()
+        {
+            StopCountDown();
+            TimeLeft = Properties.Settings.Default.TotalTime;
+            LabelTime.Text = GetTimeLeft();
+        }
         public void Timer_Tick(object sender, EventArgs e)
         {
             TimeLeft -= (double) Timer.Interval/1000;
             LabelTime.Text = GetTimeLeft();
-            if (TimeLeft == 0)
+            if (TimeLeft <= 0)
             {
                 Timer.Stop();
-                MessageBox.Show(Name + " hết giờ");
+                if (TimeOut != null)
+                    TimeOut();
             }
         }
     }

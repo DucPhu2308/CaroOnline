@@ -22,7 +22,7 @@ namespace CaroLAN
             Form form = new Form1();
             Hide();
             form.ShowDialog();
-            Show();
+            Close();
         }
 
         private void txtPlayerName_Leave(object sender, EventArgs e)

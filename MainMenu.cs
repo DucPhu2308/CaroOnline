@@ -22,7 +22,9 @@ namespace CaroLAN
             Form form = new FormChooseMode();
             Hide();
             form.ShowDialog();
-            Show();
+            // show if not disposed
+            if (!IsDisposed)
+                Show();
         }
     }
 }

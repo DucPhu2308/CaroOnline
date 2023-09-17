@@ -46,5 +46,17 @@ namespace CaroLAN.Properties {
                 this["PlayerName2"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("600")]
+        public double TotalTime {
+            get {
+                return ((double)(this["TotalTime"]));
+            }
+            set {
+                this["TotalTime"] = value;
+            }
+        }
     }
 }

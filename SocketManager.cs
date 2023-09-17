@@ -40,10 +40,19 @@ namespace CaroLAN
 
             Thread acceptClient = new Thread(() =>
             {
-                Client = Server.Accept();
+                try 
+                { 
+                    Client = Server.Accept();
+                }
+                catch
+                { }
             });
             acceptClient.IsBackground = true;
             acceptClient.Start();
+        }
+        public void CloseServer()
+        {
+            Server.Close();
         }
         #endregion
 
