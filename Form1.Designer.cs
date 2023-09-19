@@ -31,10 +31,12 @@
             this.panelBoard = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelPlayer2 = new System.Windows.Forms.Panel();
+            this.lbScore2 = new System.Windows.Forms.Label();
             this.lbName2 = new System.Windows.Forms.Label();
             this.lbTimer2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelPlayer1 = new System.Windows.Forms.Panel();
+            this.lbScore1 = new System.Windows.Forms.Label();
             this.lbName1 = new System.Windows.Forms.Label();
             this.lbTimer1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -42,14 +44,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.changeFirstPlayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToDesktopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.howToPlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panelPlayer2.SuspendLayout();
@@ -67,7 +70,7 @@
             this.panelBoard.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelBoard.Location = new System.Drawing.Point(0, 0);
             this.panelBoard.Name = "panelBoard";
-            this.panelBoard.Size = new System.Drawing.Size(1053, 635);
+            this.panelBoard.Size = new System.Drawing.Size(1053, 670);
             this.panelBoard.TabIndex = 0;
             // 
             // panel2
@@ -78,12 +81,13 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(1053, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(327, 635);
+            this.panel2.Size = new System.Drawing.Size(327, 670);
             this.panel2.TabIndex = 1;
             // 
             // panelPlayer2
             // 
             this.panelPlayer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelPlayer2.Controls.Add(this.lbScore2);
             this.panelPlayer2.Controls.Add(this.lbName2);
             this.panelPlayer2.Controls.Add(this.lbTimer2);
             this.panelPlayer2.Controls.Add(this.pictureBox2);
@@ -92,6 +96,17 @@
             this.panelPlayer2.Name = "panelPlayer2";
             this.panelPlayer2.Size = new System.Drawing.Size(327, 181);
             this.panelPlayer2.TabIndex = 2;
+            // 
+            // lbScore2
+            // 
+            this.lbScore2.AutoSize = true;
+            this.lbScore2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbScore2.Location = new System.Drawing.Point(107, 56);
+            this.lbScore2.Name = "lbScore2";
+            this.lbScore2.Size = new System.Drawing.Size(147, 38);
+            this.lbScore2.TabIndex = 6;
+            this.lbScore2.Tag = "score";
+            this.lbScore2.Text = "Score: 0";
             // 
             // lbName2
             // 
@@ -108,7 +123,7 @@
             // 
             this.lbTimer2.AutoSize = true;
             this.lbTimer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTimer2.Location = new System.Drawing.Point(129, 68);
+            this.lbTimer2.Location = new System.Drawing.Point(190, 115);
             this.lbTimer2.Name = "lbTimer2";
             this.lbTimer2.Size = new System.Drawing.Size(124, 46);
             this.lbTimer2.TabIndex = 4;
@@ -129,6 +144,7 @@
             // 
             this.panelPlayer1.BackColor = System.Drawing.SystemColors.Control;
             this.panelPlayer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelPlayer1.Controls.Add(this.lbScore1);
             this.panelPlayer1.Controls.Add(this.lbName1);
             this.panelPlayer1.Controls.Add(this.lbTimer1);
             this.panelPlayer1.Controls.Add(this.pictureBox1);
@@ -137,6 +153,17 @@
             this.panelPlayer1.Name = "panelPlayer1";
             this.panelPlayer1.Size = new System.Drawing.Size(327, 185);
             this.panelPlayer1.TabIndex = 1;
+            // 
+            // lbScore1
+            // 
+            this.lbScore1.AutoSize = true;
+            this.lbScore1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbScore1.Location = new System.Drawing.Point(107, 59);
+            this.lbScore1.Name = "lbScore1";
+            this.lbScore1.Size = new System.Drawing.Size(147, 38);
+            this.lbScore1.TabIndex = 4;
+            this.lbScore1.Tag = "score";
+            this.lbScore1.Text = "Score: 0";
             // 
             // lbName1
             // 
@@ -153,7 +180,7 @@
             // 
             this.lbTimer1.AutoSize = true;
             this.lbTimer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTimer1.Location = new System.Drawing.Point(129, 71);
+            this.lbTimer1.Location = new System.Drawing.Point(190, 118);
             this.lbTimer1.Name = "lbTimer1";
             this.lbTimer1.Size = new System.Drawing.Size(124, 46);
             this.lbTimer1.TabIndex = 2;
@@ -198,6 +225,7 @@
             this.gameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newGameToolStripMenuItem,
             this.toolStripSeparator1,
+            this.changeFirstPlayerToolStripMenuItem,
             this.undoToolStripMenuItem,
             this.redoToolStripMenuItem,
             this.toolStripSeparator2,
@@ -214,6 +242,18 @@
             this.newGameToolStripMenuItem.Text = "New game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            // 
+            // changeFirstPlayerToolStripMenuItem
+            // 
+            this.changeFirstPlayerToolStripMenuItem.Name = "changeFirstPlayerToolStripMenuItem";
+            this.changeFirstPlayerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.changeFirstPlayerToolStripMenuItem.Text = "Change first player";
+            this.changeFirstPlayerToolStripMenuItem.Click += new System.EventHandler(this.changeFirstPlayerToolStripMenuItem_Click);
+            // 
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
@@ -225,6 +265,11 @@
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.redoToolStripMenuItem.Text = "Redo";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
             // 
             // exitToMenuToolStripMenuItem
             // 
@@ -251,18 +296,8 @@
             // howToPlayToolStripMenuItem
             // 
             this.howToPlayToolStripMenuItem.Name = "howToPlayToolStripMenuItem";
-            this.howToPlayToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.howToPlayToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
             this.howToPlayToolStripMenuItem.Text = "How to play";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
             // 
             // panel1
             // 
@@ -271,14 +306,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1380, 635);
+            this.panel1.Size = new System.Drawing.Size(1380, 670);
             this.panel1.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1380, 663);
+            this.ClientSize = new System.Drawing.Size(1380, 698);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -315,9 +350,7 @@
         protected System.Windows.Forms.Label lbTimer2;
         protected System.Windows.Forms.Label lbName1;
         protected System.Windows.Forms.Label lbTimer1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToMenuToolStripMenuItem;
@@ -327,6 +360,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Panel panel1;
+        protected System.Windows.Forms.MenuStrip menuStrip1;
+        protected System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
+        private System.Windows.Forms.Label lbScore2;
+        private System.Windows.Forms.Label lbScore1;
+        protected System.Windows.Forms.ToolStripMenuItem changeFirstPlayerToolStripMenuItem;
     }
 }
 

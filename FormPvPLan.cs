@@ -15,6 +15,7 @@ namespace CaroLAN
     {
         SocketManager socket;
         bool isServer = true;
+        bool isPlayer1 = true;
         bool connected = false;
         public FormPvPLan(string ip) : base()
         {
@@ -30,7 +31,6 @@ namespace CaroLAN
             if (connected)
             {
                 socket.Send(new SocketData((int)SocketCommand.QUIT, "", null));
-                Console.WriteLine("Sent quit");
             }
             if (isServer)
                 socket.CloseServer();
@@ -40,25 +40,32 @@ namespace CaroLAN
         {
             InitConnection();
         }
-        protected override async void ResetGame()
+        protected override void ResetGame()
         {
-            base.ResetGame();
             if (isServer)
             {
-                panelBoard.Enabled = true;
                 socket.Send(new SocketData((int)SocketCommand.NEW_GAME, "", null));
+            }
+            base.ResetGame();
+            if (isPlayer1)
+            {
+                panelBoard.Enabled = true;
             }
             else
             {
                 panelBoard.Enabled = false;
-                await Listen(); //Listen for first move
+                Listen(); //Listen for first move
             }
         }
         protected override void EndGame(Player winner)
         {
+            winner.Score++;
+            winner.UpdateScore();
             PauseGame();
+            HighlightWinningButtons();
             if (isServer)
             {
+                changeFirstPlayerToolStripMenuItem.Enabled = true;
                 DialogResult dr = MessageBox.Show(winner.Name + " thắng! Bắt đầu lại?", "Trò chơi kết thúc", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dr == DialogResult.Yes)
                 {
@@ -67,8 +74,8 @@ namespace CaroLAN
             }
             else
             {
-                MessageBox.Show(winner.Name + " thắng! Chờ host bắt đầu lại.");
                 Listen(); //Listen for new game
+                MessageBox.Show(winner.Name + " thắng! Chờ host bắt đầu lại.");
             }
         }
         async void InitConnection()
@@ -101,7 +108,10 @@ namespace CaroLAN
             else
             {
                 isServer = false;
+                isPlayer1 = false;
                 connected = true;
+                newGameToolStripMenuItem.Enabled = false;
+                changeFirstPlayerToolStripMenuItem.Enabled = false;
                 panelBoard.Enabled = false; // server goes first
 
                 socket.Send(new SocketData((int)SocketCommand.SEND_NAME, player1.Name, null));
@@ -111,12 +121,28 @@ namespace CaroLAN
         }
         protected override void MatrixButton_Click(object sender, EventArgs e)
         {
-            base.MatrixButton_Click(sender, e);
             Button btn = sender as Button;
             //send point to opponent
             socket.Send(new SocketData((int)SocketCommand.SEND_POINT, "", new Point(int.Parse(btn.Tag.ToString().Split(' ')[0]), int.Parse(btn.Tag.ToString().Split(' ')[1]))));
             panelBoard.Enabled = false;
+            base.MatrixButton_Click(sender, e);
             Listen();
+        }
+        protected override void changeFirstPlayerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (isServer)
+                socket.Send(new SocketData((int)SocketCommand.CHANGE_FIRST_PLAYER, "", null));
+            base.changeFirstPlayerToolStripMenuItem_Click(sender, e);
+            isPlayer1 = !isPlayer1;
+            if (isPlayer1)
+            {
+                panelBoard.Enabled = true;
+            }
+            else
+            {
+                panelBoard.Enabled = false;
+                Listen(); //Listen for first move
+            }
         }
         private Task Listen()
         {
@@ -178,11 +204,11 @@ namespace CaroLAN
                     }
                     break;
                 case (int)SocketCommand.QUIT:
-                    PauseGame();
                     connected = false;
-                    MessageBox.Show("Đối thủ đã thoát");
                     this.Invoke((MethodInvoker)(() =>
                     {
+                        base.PauseGame();
+                        MessageBox.Show("Đối thủ đã thoát");
                         this.Close();
                     }));
                     break;
@@ -190,6 +216,12 @@ namespace CaroLAN
                     this.Invoke((MethodInvoker)(() =>
                     {
                         ResetGame();
+                    }));
+                    break;
+                case (int)SocketCommand.CHANGE_FIRST_PLAYER:
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        changeFirstPlayerToolStripMenuItem_Click(null, null);
                     }));
                     break;
             }

@@ -43,10 +43,16 @@
             this.btnLANPlay = new System.Windows.Forms.Button();
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -170,7 +176,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(433, 131);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(454, 584);
+            this.panel4.Size = new System.Drawing.Size(448, 584);
             this.panel4.TabIndex = 3;
             // 
             // label4
@@ -206,7 +212,7 @@
             this.txtIPAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.txtIPAddress.Location = new System.Drawing.Point(17, 156);
             this.txtIPAddress.Name = "txtIPAddress";
-            this.txtIPAddress.Size = new System.Drawing.Size(411, 41);
+            this.txtIPAddress.Size = new System.Drawing.Size(406, 41);
             this.txtIPAddress.TabIndex = 11;
             // 
             // label5
@@ -220,11 +226,72 @@
             this.label5.Text = "Địa chỉ IP:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.LightCyan;
+            this.panel5.Controls.Add(this.comboBox1);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(881, 131);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(421, 584);
+            this.panel5.TabIndex = 4;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(6, 21);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(140, 38);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "PvCom.";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Wheat;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button1.FlatAppearance.BorderSize = 3;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.button1.ForeColor = System.Drawing.Color.Brown;
+            this.button1.Location = new System.Drawing.Point(22, 223);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(250, 56);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Bắt đầu";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.label7.Location = new System.Drawing.Point(7, 101);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(194, 36);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Chọn độ khó:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(13, 156);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(384, 44);
+            this.comboBox1.TabIndex = 18;
+            // 
             // FormChooseMode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1308, 715);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -241,6 +308,8 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -262,5 +331,10 @@
         private System.Windows.Forms.Button btnLANPlay;
         private System.Windows.Forms.TextBox txtIPAddress;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

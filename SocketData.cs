@@ -30,6 +30,7 @@ namespace CaroLAN
         UNDO,
         END_GAME,
         TIME_OUT,
-        QUIT
+        QUIT,
+        CHANGE_FIRST_PLAYER
     }
 }

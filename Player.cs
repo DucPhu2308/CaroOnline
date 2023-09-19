@@ -17,6 +17,7 @@ namespace CaroLAN
         public Timer Timer { get; set; }
         public Label LabelTime { get; set; }
         public Label LabelName { get; set; }
+        public Label LabelScore { get; set; }
         public Panel PanelPlayer { get; set; }
         public event TimeOutHandler TimeOut;
         public delegate void TimeOutHandler();
@@ -32,6 +33,15 @@ namespace CaroLAN
 
 
             PanelPlayer = panelPlayer;
+            UpdatePanel();
+            LabelTime.Text = GetTimeLeft();
+        }
+        public void UpdateScore()
+        {
+            LabelScore.Text = "Score: " + Score.ToString();
+        }
+        void UpdatePanel()
+        {
             foreach (Control control in PanelPlayer.Controls)
             {
                 if (control.Tag == null)
@@ -44,8 +54,29 @@ namespace CaroLAN
                 {
                     LabelTime = control as Label;
                 }
+                else if (control.Tag.ToString() == "score")
+                {
+                    LabelScore = control as Label;
+                }
             }
-            LabelTime.Text = GetTimeLeft();
+        }
+        public static void ChangeFirstPlayer(ref Player player1, ref Player player2)
+        {
+            Player temp = player1;
+            player1 = player2;
+            player2 = temp;
+            // swap panel
+            Panel tempPanel = player1.PanelPlayer;
+            player1.PanelPlayer = player2.PanelPlayer;
+            player2.PanelPlayer = tempPanel;
+
+            player1.UpdatePanel();
+            player1.UpdateScore();
+            player1.UpdateName();
+
+            player2.UpdatePanel();
+            player2.UpdateScore();
+            player2.UpdateName();
         }
         public string GetTimeLeft()
         {
@@ -65,10 +96,9 @@ namespace CaroLAN
 
             return minutesStr + ":" + secondsStr;
         }
-        public void UpdateName(string name)
+        public void UpdateName()
         {
-            Name = name;
-            LabelName.Text = name;
+            LabelName.Text = Name;
         }
         public void StartCountDown()
         {
