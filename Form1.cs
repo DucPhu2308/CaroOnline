@@ -40,6 +40,7 @@ namespace CaroLAN
         public static Bitmap imgX = Properties.Resources.x;
         public static Bitmap imgO = Properties.Resources.o;
         List<Button> winningButtons = new List<Button>();
+        protected Stack<Point> stackUndo = new Stack<Point>();
         public void BoardInit(Panel panelBoard)
         {
             WIDTH = panelBoard.Width / btnWidth;
@@ -93,13 +94,14 @@ namespace CaroLAN
         protected virtual void MatrixButton_Click(object sender, EventArgs e)
         {
             // unable to change first player after first move
-            changeFirstPlayerToolStripMenuItem.Enabled = false;
             Button btn = sender as Button;
             btn.Focus();
             if (btn.BackgroundImage != null)
                 return;
 
+            changeFirstPlayerToolStripMenuItem.Enabled = false;
             Point point = GetPoint(btn);
+            stackUndo.Push(point);
             if (isXturn)
                 btn.BackgroundImage = imgX;
             else
@@ -157,7 +159,6 @@ namespace CaroLAN
             isXturn = true;
             pbTurn.BackgroundImage = imgX;
         }
-
         protected Point GetPoint(Button btn)
         {
             string[] xy = btn.Tag.ToString().Split(' ');
@@ -165,7 +166,6 @@ namespace CaroLAN
             int x = Convert.ToInt32(xy[1]);
             return new Point(x, y);
         }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             var result = MessageBox.Show("Bạn muốn thoát?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -176,7 +176,6 @@ namespace CaroLAN
             else
                 Dispose();
         }
-
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Bạn muốn bắt đầu lại?", "Bắt đầu lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -186,12 +185,10 @@ namespace CaroLAN
                 ResetGame();
             }
         }
-
         private void exitToMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void exitToDesktopToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
@@ -200,6 +197,18 @@ namespace CaroLAN
         protected virtual void changeFirstPlayerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Player.ChangeFirstPlayer(ref player1, ref player2);
+        }
+        protected virtual void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Undo();
+        }
+        protected void Undo()
+        {
+            if (stackUndo.Count == 0)
+                return;
+            Point point = stackUndo.Pop();
+            matrixButton[point.Y, point.X].BackgroundImage = null;
+            ChangeTurn();
         }
 
         #region endgame check
@@ -362,5 +371,7 @@ namespace CaroLAN
             }
         }
         #endregion
+
+        
     }
 }

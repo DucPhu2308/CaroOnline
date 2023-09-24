@@ -23,6 +23,7 @@ namespace CaroLAN
             socket.IP = ip;
             this.Shown += FormPvPLan_Shown;
             this.FormClosed += FormPvPLan_FormClosed;
+            undoToolStripMenuItem.Enabled = false;
 
         }
 

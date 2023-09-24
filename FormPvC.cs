@@ -30,6 +30,18 @@ namespace CaroLAN
                 BotFirstMove();
             }
         }
+        protected override void MatrixButton_Click(object sender, EventArgs e)
+        {
+            base.MatrixButton_Click(sender, e);
+            Point point = GetPoint((Button)sender);
+
+            this.Refresh();
+            if (isXturn == botIsX)
+            {
+                Button btn = CalculateNexMove();
+                btn.PerformClick();
+            }
+        }
         protected override void changeFirstPlayerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             base.changeFirstPlayerToolStripMenuItem_Click(sender, e);
@@ -48,11 +60,17 @@ namespace CaroLAN
                 BotFirstMove();
             }
         }
+        protected override void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            base.undoToolStripMenuItem_Click(sender, e);
+            // undo twice
+            Undo();
+            if (stackUndo.Count == 0 && botIsX)
+            {
+                BotFirstMove();
+            }
+        }
         #region AI
-        private int maxRow = 0;
-        private int minRow = int.MaxValue;
-        private int maxCol = 0;
-        private int minCol = int.MaxValue;
         private void BotFirstMove()
         {
               // bot goes in middle
@@ -60,39 +78,7 @@ namespace CaroLAN
             int y = matrixButton.GetLength(0) / 2 - 1;
             matrixButton[y, x].PerformClick();
         }
-        protected override void MatrixButton_Click(object sender, EventArgs e)
-        {
-            base.MatrixButton_Click(sender, e);
-            Point point = GetPoint((Button)sender);
-            UpdateMinMaxColRow(point);
-
-            this.Refresh();
-            if (isXturn == botIsX)
-            {
-                Button btn = CalculateNexMove();
-                btn.PerformClick();
-            }
-        }
-
-        private void UpdateMinMaxColRow(Point point)
-        {
-            int offset = 1;
-            if (point.X < minCol)
-                minCol = point.X;
-            minCol = (minCol - offset < 0 ? 0 : minCol - offset);
-
-            if (point.X > maxCol)
-                maxCol = point.X;
-            maxCol = (maxCol + offset > matrixButton.GetLength(1) - 1 ? matrixButton.GetLength(1) - 1 : maxCol + offset);
-
-            if (point.Y < minRow)
-                minRow = point.Y;
-            minRow = (minRow - offset < 0 ? 0 : minRow - offset);
-
-            if (point.Y > maxRow)
-                maxRow = point.Y;
-            maxRow = (maxRow + offset > matrixButton.GetLength(0) - 1 ? matrixButton.GetLength(0) - 1 : maxRow + offset);
-        }
+        
         Button CalculateNexMove()
         {
             int h = matrixButton.GetLength(0);
