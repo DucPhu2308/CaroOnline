@@ -61,7 +61,8 @@ namespace CaroLAN
 
         private void btnPvC_Click(object sender, EventArgs e)
         {
-            Form form = new FormPvC();
+            bool playerFirst = rbPlayerFirst.Checked;
+            Form form = new FormPvC(playerFirst);
             Hide();
             form.ShowDialog();
             Close();

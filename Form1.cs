@@ -18,7 +18,7 @@ namespace CaroLAN
         }
         protected Player player1;
         protected Player player2;
-        protected void Form1_Load(object sender, EventArgs e)
+        protected virtual void Form1_Load(object sender, EventArgs e)
         {
             player1 = new Player(Properties.Settings.Default.PlayerName, panelPlayer1);
             player2 = new Player(Properties.Settings.Default.PlayerName2, panelPlayer2);
@@ -181,7 +181,10 @@ namespace CaroLAN
         {
             var result = MessageBox.Show("Bạn muốn bắt đầu lại?", "Bắt đầu lại", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
+            {
+                changeFirstPlayerToolStripMenuItem.Enabled = true;
                 ResetGame();
+            }
         }
 
         private void exitToMenuToolStripMenuItem_Click(object sender, EventArgs e)

@@ -46,8 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AIHelper\EvaluatedMove.cs" />
-    <Compile Include="AIHelper\Evaluation.cs" />
+    <Compile Include="EvaluateMove.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,17 +65,12 @@
     <Compile Include="FormPvPLan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Gameplay.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="MessageBoxCancel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Minimax.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

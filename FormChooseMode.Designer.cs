@@ -44,10 +44,10 @@
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnPvC = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.rbPlayerFirst = new System.Windows.Forms.RadioButton();
+            this.rbComFirst = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -229,24 +229,15 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.LightCyan;
-            this.panel5.Controls.Add(this.comboBox1);
+            this.panel5.Controls.Add(this.rbComFirst);
+            this.panel5.Controls.Add(this.rbPlayerFirst);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.btnPvC);
-            this.panel5.Controls.Add(this.label7);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(881, 131);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(421, 584);
             this.panel5.TabIndex = 4;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(13, 156);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(384, 44);
-            this.comboBox1.TabIndex = 18;
             // 
             // label6
             // 
@@ -276,16 +267,29 @@
             this.btnPvC.UseVisualStyleBackColor = false;
             this.btnPvC.Click += new System.EventHandler(this.btnPvC_Click);
             // 
-            // label7
+            // rbPlayerFirst
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.label7.Location = new System.Drawing.Point(7, 101);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(194, 36);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Chọn độ khó:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.rbPlayerFirst.AutoSize = true;
+            this.rbPlayerFirst.Checked = true;
+            this.rbPlayerFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.rbPlayerFirst.Location = new System.Drawing.Point(49, 101);
+            this.rbPlayerFirst.Name = "rbPlayerFirst";
+            this.rbPlayerFirst.Size = new System.Drawing.Size(196, 40);
+            this.rbPlayerFirst.TabIndex = 18;
+            this.rbPlayerFirst.TabStop = true;
+            this.rbPlayerFirst.Text = "Bạn đi trước";
+            this.rbPlayerFirst.UseVisualStyleBackColor = true;
+            // 
+            // rbComFirst
+            // 
+            this.rbComFirst.AutoSize = true;
+            this.rbComFirst.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.rbComFirst.Location = new System.Drawing.Point(49, 157);
+            this.rbComFirst.Name = "rbComFirst";
+            this.rbComFirst.Size = new System.Drawing.Size(199, 40);
+            this.rbComFirst.TabIndex = 19;
+            this.rbComFirst.Text = "Máy đi trước";
+            this.rbComFirst.UseVisualStyleBackColor = true;
             // 
             // FormChooseMode
             // 
@@ -335,7 +339,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnPvC;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.RadioButton rbPlayerFirst;
+        private System.Windows.Forms.RadioButton rbComFirst;
     }
 }
