@@ -35,10 +35,10 @@ namespace CaroLAN
         int WIDTH;
         int btnWidth = 30;
         int btnHeight = 30;
-        protected Button[,] matrixButton;
+        protected Button[,] matrixButton = null;
         protected bool isXturn = true;
-        protected Bitmap imgX = Properties.Resources.x;
-        protected Bitmap imgO = Properties.Resources.o;
+        public static Bitmap imgX = Properties.Resources.x;
+        public static Bitmap imgO = Properties.Resources.o;
         List<Button> winningButtons = new List<Button>();
         public void BoardInit(Panel panelBoard)
         {
@@ -158,7 +158,7 @@ namespace CaroLAN
             pbTurn.BackgroundImage = imgX;
         }
 
-        Point GetPoint(Button btn)
+        protected Point GetPoint(Button btn)
         {
             string[] xy = btn.Tag.ToString().Split(' ');
             int y = Convert.ToInt32(xy[0]);
@@ -194,7 +194,11 @@ namespace CaroLAN
             Close();
             Application.Exit();
         }
-        
+        protected virtual void changeFirstPlayerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Player.ChangeFirstPlayer(ref player1, ref player2);
+        }
+
         #region endgame check
         public bool IsEndGame(Button[,] matrixButton, Point point)
         {
@@ -355,10 +359,5 @@ namespace CaroLAN
             }
         }
         #endregion
-
-        protected virtual void changeFirstPlayerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Player.ChangeFirstPlayer(ref player1, ref player2);
-        }
     }
 }

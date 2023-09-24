@@ -70,7 +70,7 @@
             this.panelBoard.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelBoard.Location = new System.Drawing.Point(0, 0);
             this.panelBoard.Name = "panelBoard";
-            this.panelBoard.Size = new System.Drawing.Size(1053, 670);
+            this.panelBoard.Size = new System.Drawing.Size(1053, 668);
             this.panelBoard.TabIndex = 0;
             // 
             // panel2
@@ -81,7 +81,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(1053, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(327, 670);
+            this.panel2.Size = new System.Drawing.Size(327, 668);
             this.panel2.TabIndex = 1;
             // 
             // panelPlayer2
@@ -216,7 +216,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1380, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1380, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -232,56 +232,56 @@
             this.exitToMenuToolStripMenuItem,
             this.exitToDesktopToolStripMenuItem});
             this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
-            this.gameToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.gameToolStripMenuItem.Size = new System.Drawing.Size(62, 26);
             this.gameToolStripMenuItem.Text = "Game";
             // 
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.newGameToolStripMenuItem.Text = "New game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
             // 
             // changeFirstPlayerToolStripMenuItem
             // 
             this.changeFirstPlayerToolStripMenuItem.Name = "changeFirstPlayerToolStripMenuItem";
-            this.changeFirstPlayerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.changeFirstPlayerToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.changeFirstPlayerToolStripMenuItem.Text = "Change first player";
             this.changeFirstPlayerToolStripMenuItem.Click += new System.EventHandler(this.changeFirstPlayerToolStripMenuItem_Click);
             // 
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.undoToolStripMenuItem.Text = "Undo";
             // 
             // redoToolStripMenuItem
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.redoToolStripMenuItem.Text = "Redo";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(213, 6);
             // 
             // exitToMenuToolStripMenuItem
             // 
             this.exitToMenuToolStripMenuItem.Name = "exitToMenuToolStripMenuItem";
-            this.exitToMenuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToMenuToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.exitToMenuToolStripMenuItem.Text = "Exit to menu";
             this.exitToMenuToolStripMenuItem.Click += new System.EventHandler(this.exitToMenuToolStripMenuItem_Click);
             // 
             // exitToDesktopToolStripMenuItem
             // 
             this.exitToDesktopToolStripMenuItem.Name = "exitToDesktopToolStripMenuItem";
-            this.exitToDesktopToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToDesktopToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.exitToDesktopToolStripMenuItem.Text = "Exit to desktop";
             this.exitToDesktopToolStripMenuItem.Click += new System.EventHandler(this.exitToDesktopToolStripMenuItem_Click);
             // 
@@ -290,7 +290,7 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.howToPlayToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // howToPlayToolStripMenuItem
@@ -304,9 +304,9 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panelBoard);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1380, 670);
+            this.panel1.Size = new System.Drawing.Size(1380, 668);
             this.panel1.TabIndex = 2;
             // 
             // Form1

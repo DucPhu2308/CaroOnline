@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AIHelper\EvaluatedMove.cs" />
+    <Compile Include="AIHelper\Evaluation.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +59,9 @@
     </Compile>
     <Compile Include="FormChooseMode.Designer.cs">
       <DependentUpon>FormChooseMode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPvC.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPvPLan.cs">
       <SubType>Form</SubType>
@@ -71,6 +76,7 @@
     <Compile Include="MessageBoxCancel.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Minimax.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

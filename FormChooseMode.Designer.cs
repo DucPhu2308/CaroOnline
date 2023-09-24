@@ -44,10 +44,10 @@
             this.txtIPAddress = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnPvC = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -231,13 +231,22 @@
             this.panel5.BackColor = System.Drawing.Color.LightCyan;
             this.panel5.Controls.Add(this.comboBox1);
             this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.btnPvC);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(881, 131);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(421, 584);
             this.panel5.TabIndex = 4;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(13, 156);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(384, 44);
+            this.comboBox1.TabIndex = 18;
             // 
             // label6
             // 
@@ -250,21 +259,22 @@
             this.label6.Text = "PvCom.";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // button1
+            // btnPvC
             // 
-            this.button1.BackColor = System.Drawing.Color.Wheat;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button1.FlatAppearance.BorderSize = 3;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.button1.ForeColor = System.Drawing.Color.Brown;
-            this.button1.Location = new System.Drawing.Point(22, 223);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(250, 56);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Bắt đầu";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnPvC.BackColor = System.Drawing.Color.Wheat;
+            this.btnPvC.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPvC.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnPvC.FlatAppearance.BorderSize = 3;
+            this.btnPvC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPvC.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.btnPvC.ForeColor = System.Drawing.Color.Brown;
+            this.btnPvC.Location = new System.Drawing.Point(22, 223);
+            this.btnPvC.Name = "btnPvC";
+            this.btnPvC.Size = new System.Drawing.Size(250, 56);
+            this.btnPvC.TabIndex = 16;
+            this.btnPvC.Text = "Bắt đầu";
+            this.btnPvC.UseVisualStyleBackColor = false;
+            this.btnPvC.Click += new System.EventHandler(this.btnPvC_Click);
             // 
             // label7
             // 
@@ -276,15 +286,6 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Chọn độ khó:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(13, 156);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(384, 44);
-            this.comboBox1.TabIndex = 18;
             // 
             // FormChooseMode
             // 
@@ -333,7 +334,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPvC;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox1;
     }

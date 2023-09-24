@@ -58,5 +58,13 @@ namespace CaroLAN
             form.ShowDialog();
             Close();
         }
+
+        private void btnPvC_Click(object sender, EventArgs e)
+        {
+            Form form = new FormPvC();
+            Hide();
+            form.ShowDialog();
+            Close();
+        }
     }
 }
