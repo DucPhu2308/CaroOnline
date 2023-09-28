@@ -9,7 +9,13 @@
       <Value Profile="(Default)">Default2</Value>
     </Setting>
     <Setting Name="TotalTime" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">600</Value>
+      <Value Profile="(Default)">300</Value>
+    </Setting>
+    <Setting Name="SFXVolume" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="BGMVolume" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">50</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -11,3 +11,11 @@ D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.exe
 D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.pdb
 D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.MainMenu.resources
 D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.FormChooseMode.resources
+D:\Learning\HK5\CaroLAN\bin\Debug\Interop.WMPLib.dll
+D:\Learning\HK5\CaroLAN\bin\Debug\AxInterop.WMPLib.dll
+D:\Learning\HK5\CaroLAN\obj\Debug\Interop.WMPLib.dll
+D:\Learning\HK5\CaroLAN\obj\Debug\AxInterop.WMPLib.dll
+D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.csproj.ResolveComReference.cache
+D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.FormOption.resources
+D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.FormPvC.resources
+D:\Learning\HK5\CaroLAN\obj\Debug\CaroLAN.FormPvPLan.resources

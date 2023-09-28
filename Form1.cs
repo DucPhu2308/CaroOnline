@@ -25,6 +25,12 @@ namespace CaroLAN
             player1.TimeOut += Player_TimeOut;
             player2.TimeOut += Player_TimeOut;
 
+            if (Properties.Settings.Default.TotalTime == 0)
+            {
+                player1.DisableTimer();
+                player2.DisableTimer();
+            }
+
             lbName1.Text = player1.Name;
             lbName2.Text = player2.Name;
             BoardInit(panelBoard);
@@ -99,6 +105,7 @@ namespace CaroLAN
             if (btn.BackgroundImage != null)
                 return;
 
+            SoundSystem.PlaySound(SoundSystem.pencilSound);
             changeFirstPlayerToolStripMenuItem.Enabled = false;
             Point point = GetPoint(btn);
             stackUndo.Push(point);

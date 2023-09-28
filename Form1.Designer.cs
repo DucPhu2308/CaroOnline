@@ -34,13 +34,10 @@
             this.lbScore2 = new System.Windows.Forms.Label();
             this.lbName2 = new System.Windows.Forms.Label();
             this.lbTimer2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelPlayer1 = new System.Windows.Forms.Panel();
             this.lbScore1 = new System.Windows.Forms.Label();
             this.lbName1 = new System.Windows.Forms.Label();
             this.lbTimer1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pbTurn = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,14 +51,17 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.howToPlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbTurn = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panelPlayer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelPlayer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTurn)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTurn)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBoard
@@ -70,7 +70,7 @@
             this.panelBoard.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelBoard.Location = new System.Drawing.Point(0, 0);
             this.panelBoard.Name = "panelBoard";
-            this.panelBoard.Size = new System.Drawing.Size(1053, 670);
+            this.panelBoard.Size = new System.Drawing.Size(1053, 668);
             this.panelBoard.TabIndex = 0;
             // 
             // panel2
@@ -81,7 +81,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(1053, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(327, 670);
+            this.panel2.Size = new System.Drawing.Size(327, 668);
             this.panel2.TabIndex = 1;
             // 
             // panelPlayer2
@@ -130,16 +130,6 @@
             this.lbTimer2.Tag = "time";
             this.lbTimer2.Text = "00:00";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::CaroLAN.Properties.Resources.o;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(6, 56);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(86, 81);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
             // panelPlayer1
             // 
             this.panelPlayer1.BackColor = System.Drawing.SystemColors.Control;
@@ -187,27 +177,6 @@
             this.lbTimer1.Tag = "time";
             this.lbTimer1.Text = "00:00";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::CaroLAN.Properties.Resources.x;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 59);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(86, 81);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pbTurn
-            // 
-            this.pbTurn.BackgroundImage = global::CaroLAN.Properties.Resources.x;
-            this.pbTurn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbTurn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pbTurn.Location = new System.Drawing.Point(0, 0);
-            this.pbTurn.Name = "pbTurn";
-            this.pbTurn.Size = new System.Drawing.Size(327, 261);
-            this.pbTurn.TabIndex = 0;
-            this.pbTurn.TabStop = false;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -216,7 +185,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1380, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1380, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -238,6 +207,7 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
+            this.newGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.newGameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newGameToolStripMenuItem.Text = "New game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
@@ -257,6 +227,7 @@
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.undoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
@@ -305,10 +276,41 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panelBoard);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1380, 670);
+            this.panel1.Size = new System.Drawing.Size(1380, 668);
             this.panel1.TabIndex = 2;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::CaroLAN.Properties.Resources.o;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(6, 56);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(86, 81);
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::CaroLAN.Properties.Resources.x;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 59);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(86, 81);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pbTurn
+            // 
+            this.pbTurn.BackgroundImage = global::CaroLAN.Properties.Resources.x;
+            this.pbTurn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbTurn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbTurn.Location = new System.Drawing.Point(0, 0);
+            this.pbTurn.Name = "pbTurn";
+            this.pbTurn.Size = new System.Drawing.Size(327, 261);
+            this.pbTurn.TabIndex = 0;
+            this.pbTurn.TabStop = false;
             // 
             // Form1
             // 
@@ -320,20 +322,20 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Caro";
+            this.Text = "Cờ Caro";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel2.ResumeLayout(false);
             this.panelPlayer2.ResumeLayout(false);
             this.panelPlayer2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelPlayer1.ResumeLayout(false);
             this.panelPlayer1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTurn)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTurn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -21,6 +21,7 @@ namespace CaroLAN
         public Panel PanelPlayer { get; set; }
         public event TimeOutHandler TimeOut;
         public delegate void TimeOutHandler();
+        private bool timerEnabled = true;
         public Player(string name, Panel panelPlayer)
         {
             Name = name;
@@ -39,6 +40,12 @@ namespace CaroLAN
         public void UpdateScore()
         {
             LabelScore.Text = "Score: " + Score.ToString();
+        }
+        public void DisableTimer()
+        {
+            Console.WriteLine("hi");
+            timerEnabled = false;
+            LabelTime.Visible = false;
         }
         void UpdatePanel()
         {
@@ -102,7 +109,8 @@ namespace CaroLAN
         }
         public void StartCountDown()
         {
-            Timer.Start();
+            if (timerEnabled)
+                Timer.Start();
         }
         public void StopCountDown()
         {
@@ -116,13 +124,13 @@ namespace CaroLAN
         }
         public void Timer_Tick(object sender, EventArgs e)
         {
+            Console.WriteLine(timerEnabled);
             TimeLeft -= (double) Timer.Interval/1000;
             LabelTime.Text = GetTimeLeft();
             if (TimeLeft <= 0)
             {
                 Timer.Stop();
-                if (TimeOut != null)
-                    TimeOut();
+                TimeOut?.Invoke();
             }
         }
     }

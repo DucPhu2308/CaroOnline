@@ -21,6 +21,8 @@ namespace CaroLAN
         protected override void Form1_Load(object sender, EventArgs e)
         {
             base.Form1_Load(sender, e);
+            player1.DisableTimer();
+            player2.DisableTimer();
             player2.Name = "Computer";
             player2.UpdateName();
             if (botIsX)
@@ -33,7 +35,6 @@ namespace CaroLAN
         protected override void MatrixButton_Click(object sender, EventArgs e)
         {
             base.MatrixButton_Click(sender, e);
-            Point point = GetPoint((Button)sender);
 
             this.Refresh();
             if (isXturn == botIsX)

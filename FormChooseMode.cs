@@ -19,6 +19,7 @@ namespace CaroLAN
 
         private void btnLocalPlay_Click(object sender, EventArgs e)
         {
+            SoundSystem.PlaySound(SoundSystem.pencilSound);
             Form form = new Form1();
             Hide();
             form.ShowDialog();
@@ -53,6 +54,7 @@ namespace CaroLAN
 
         private void btnLANPlay_Click(object sender, EventArgs e)
         {
+            SoundSystem.PlaySound(SoundSystem.pencilSound);
             Form form = new FormPvPLan(txtIPAddress.Text);
             Hide();
             form.ShowDialog();
@@ -61,6 +63,7 @@ namespace CaroLAN
 
         private void btnPvC_Click(object sender, EventArgs e)
         {
+            SoundSystem.PlaySound(SoundSystem.pencilSound);
             bool playerFirst = rbPlayerFirst.Checked;
             Form form = new FormPvC(playerFirst);
             Hide();

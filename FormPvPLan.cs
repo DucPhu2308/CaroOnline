@@ -39,6 +39,9 @@ namespace CaroLAN
 
         void FormPvPLan_Shown(object sender, EventArgs e)
         {
+            // disable timer in PvP LAN
+            player1.DisableTimer();
+            player2.DisableTimer();
             InitConnection();
         }
         protected override void ResetGame()
@@ -190,7 +193,7 @@ namespace CaroLAN
                             {
                                 player2 = new Player(data.Message, panelPlayer2);
                                 player2.LabelName.Text = player2.Name;
-                                player2.TimeOut += base.Player_TimeOut;
+                                //player2.TimeOut += base.Player_TimeOut;
                             }
                             else
                             {
@@ -198,9 +201,11 @@ namespace CaroLAN
                                 player1 = new Player(data.Message, panelPlayer1);
                                 player2.LabelName.Text = player2.Name;
                                 player1.LabelName.Text = player1.Name;
-                                player1.TimeOut += base.Player_TimeOut;
-                                player2.TimeOut += base.Player_TimeOut;
+                                //player1.TimeOut += base.Player_TimeOut;
+                                //player2.TimeOut += base.Player_TimeOut;
                             }
+                            player1.DisableTimer();
+                            player2.DisableTimer();
                         }));
                     }
                     break;

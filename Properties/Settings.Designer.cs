@@ -49,13 +49,37 @@ namespace CaroLAN.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("600")]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
         public double TotalTime {
             get {
                 return ((double)(this["TotalTime"]));
             }
             set {
                 this["TotalTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int SFXVolume {
+            get {
+                return ((int)(this["SFXVolume"]));
+            }
+            set {
+                this["SFXVolume"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int BGMVolume {
+            get {
+                return ((int)(this["BGMVolume"]));
+            }
+            set {
+                this["BGMVolume"] = value;
             }
         }
     }
